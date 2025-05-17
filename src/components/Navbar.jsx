@@ -40,11 +40,6 @@ const Navbar = () => {
                         <FaRss fontSize={20}/>
                     </Button>
                 </Link>
-                <Link to={"/garden"}>
-                    <Button>
-                        <TbNote fontSize={20}/>
-                    </Button>
-                </Link>
                 {/* Button for dark mode */}
                 <Button onClick={toggleColorMode}>
                     {colorMode === "light" ? <IoMoon/> : <LuSun fontSize={20}/>}

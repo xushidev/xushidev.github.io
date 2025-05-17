@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import Blog from "./pages/Blog"
-import Garden from "./pages/Garden"
 import Navbar from "./components/Navbar"
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
         <Route path="/" element={ <Home/> } />
         <Route path="/projects" element={ <Projects/> }/>
         <Route path="/blog" element={ <Blog/> } />
-        <Route path="/garden" element={ <Garden/> } />
         {/*
           Home -> Skills, descriptions (about me) and contacts
           Projects -> Live projects and archived projects
