@@ -2,23 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Container, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import ItemCard from '../components/ItemCard';
 
-
-
-const Blog = () => {
-    const [blogs, setBlogs] = useState([]);
+const Notes = () => {
+    const [notes, setNotes] = useState([]);
 
     useEffect(() => {
         // Fetch the index file first
-        fetch('/blogs/blog-index.json')
+        fetch('/notes/note-index.json')
             .then(res => res.json())
-            .then(async (blogNames) => {
+            .then(async (noteNames) => {
                 // Fetch all project JSON files in parallel
-                const blogData = await Promise.all(
-                    blogNames.map(name =>
+                const noteData = await Promise.all(
+                    noteNames.map(name =>
                         fetch(`/blogs/${name}.json`).then(res => res.json())
                     )
                 );
-                setBlogs(blogData);
+                setNotes(noteData);
             });
     }, []);
 
@@ -29,7 +27,7 @@ const Blog = () => {
                 fontWeight={"bold"}
                 textAlign={"center"}
             >
-                Blogs
+                Notes
             </Text>
 
             <SimpleGrid
@@ -41,12 +39,13 @@ const Blog = () => {
                 spacing={10}
                 w={'full'}
             >
-                {blogs.map(blog => (
-                        <ItemCard key={blog._id} item={blog} />
+                {notes.map(note => (
+                        <ItemCard key={note._id} item={note} />
                     ))}
             </SimpleGrid>
+
         </VStack>
     </Container>;
-}
+};
 
-export default Blog
+export default Notes;

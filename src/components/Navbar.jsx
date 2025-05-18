@@ -1,10 +1,9 @@
-import { Button, Container, Flex, HStack, Text, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Button, Container, Flex, HStack, Text, Tooltip, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import { FaRss } from 'react-icons/fa';
 import { GrProjects } from 'react-icons/gr';
 import { IoMoon } from 'react-icons/io5';
-import { LuSun } from 'react-icons/lu';
-import { TbNote } from 'react-icons/tb';
+import { LuScrollText, LuSun } from 'react-icons/lu';
 import { Link } from 'react-router';
 
 const Navbar = () => {
@@ -25,25 +24,38 @@ const Navbar = () => {
                 fontWeight={"bold"}
                 textTransform={"uppercase"}
                 textAlign={"center"}
+                bgGradient={"linear(to-r, #b4befe, #99d1db)"}
+                bgClip={"text"}
             >
                 <Link to={"/"}>Xushi</Link>
             </Text>
-
             <HStack spacing={2} alignItems={"center"}>
                 <Link to={"/projects"}>
+                    <Tooltip label='projects' hasArrow closeDelay={100}>
                     <Button>
                         <GrProjects fontSize={20}/>
                     </Button>
+                    </Tooltip>
                 </Link>
                 <Link to={"/blog"}>
+                    <Tooltip label='blogs' hasArrow closeDelay={100}>
                     <Button>
                         <FaRss fontSize={20}/>
                     </Button>
+                    </Tooltip>
                 </Link>
-                {/* Button for dark mode */}
-                <Button onClick={toggleColorMode}>
-                    {colorMode === "light" ? <IoMoon/> : <LuSun fontSize={20}/>}
-                </Button>
+                <Link to={"/notes"}>
+                    <Tooltip label='notes' hasArrow closeDelay={100}>
+                    <Button>
+                        <LuScrollText fontSize={20}/>
+                    </Button>
+                    </Tooltip>
+                </Link>
+                <Tooltip label='Switch dark/light mode' hasArrow closeDelay={100}>
+                    <Button onClick={toggleColorMode}>
+                        {colorMode === "light" ? <IoMoon/> : <LuSun fontSize={20}/>}
+                    </Button>
+                </Tooltip>
             </HStack>
         </Flex>
     </Container>;

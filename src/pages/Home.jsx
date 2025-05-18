@@ -1,33 +1,22 @@
-import React, { useEffect } from 'react'
-import { useProjectsGetter } from '../projects/blog';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
+import { Container, Text, VStack } from '@chakra-ui/react';
+import React from 'react'
 
 const Home = () => {
-    const { fetchContent, projects } = useProjectsGetter();
 
-    useEffect(() => {
-        fetchContent();
-    }, [fetchContent]);
-
-    console.log("repo", projects);
-    const allowedElements = [
-        'br', 'details', 'summary', 'a', 'img',
-        'p', 'strong', 'em', 'ul', 'ol', 'li', 'code', 'pre', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
-    ];
-    const markdown = Array.isArray(projects) ? projects.join('\n\n') : (projects || '');
-
-    return <div>
-        Home
-        <Markdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
-            allowedElements={allowedElements}
-        >
-            { markdown }
-        </Markdown>
-    </div>;
+    return (
+    <Container maxW='container.xl' py={12}>
+        <VStack spacing={8}>
+            <Text
+                fontSize={30}
+                fontWeight={"bold"}
+                textAlign={"center"}
+            >
+                Home
+            </Text>
+            
+        </VStack>
+    </Container>
+    );
 }
 
 export default Home

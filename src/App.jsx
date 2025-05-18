@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import Blog from "./pages/Blog"
 import Navbar from "./components/Navbar"
+import Notes from "./pages/Notes"
 
 function App() {
 
@@ -14,11 +15,12 @@ function App() {
         <Route path="/" element={ <Home/> } />
         <Route path="/projects" element={ <Projects/> }/>
         <Route path="/blog" element={ <Blog/> } />
+        <Route path="/notes" element={ <Notes/> }/>
         {/*
           Home -> Skills, descriptions (about me) and contacts
           Projects -> Live projects and archived projects
           Blog -> Bloggings (Github repository)
-          Garden -> School notes and my own notes (Github Repository)
+          Notes -> School notes and my own notes (Github Repository)
         */} 
       </Routes>
     </Box>

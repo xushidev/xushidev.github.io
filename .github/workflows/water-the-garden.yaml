@@ -1,0 +1,41 @@
+name: Update projects and deploy
+
+on:
+  schedule:
+    - cron: '0 * * * *' # run every hour
+  workflow_dispatch:    # manual trigger
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run update script (blog)
+        run: node src/scripts/update-blog.js 
+
+      - name: Run update script (notes)
+        run: node src/scripts/update-notes.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Auto-update blog content" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push
+
+      - name: Deploy site
+        run: npm run deploy
