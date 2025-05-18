@@ -1,4 +1,4 @@
-name: Update projects and deploy
+name: Water the garden
 
 on:
   schedule:

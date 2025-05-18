@@ -1,4 +1,4 @@
-name: Update projects and deploy
+name: Check for trees and apples
 
 on:
   schedule:
