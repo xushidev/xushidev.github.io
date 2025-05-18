@@ -13,7 +13,7 @@ data.forEach(element => {
 
 const noteString = JSON.stringify(noteList);
 
-fs.writeFile('../../public/notes/note-index.json', noteString, err => {
+fs.writeFile('./public/notes/note-index.json', noteString, err => {
     if (err) {
     console.error(err);
     } else {
@@ -51,7 +51,7 @@ for (const element of variable) {
 
 // writing the array
 variable.forEach(element => {
-    fs.writeFile(`../../public/notes/${element.name}.json`, JSON.stringify(element), err => {
+    fs.writeFile(`./public/notes/${element.name}.json`, JSON.stringify(element), err => {
         if (err){
             console.log(err);
         } else{

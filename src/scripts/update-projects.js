@@ -1,4 +1,5 @@
 // importing file system
+import path from 'path';
 import fs, { read } from "fs";
 
 const listRepos = await fetch("https://api.github.com/users/xushidev/repos");
@@ -12,7 +13,9 @@ data.forEach(element => {
 
 const things = JSON.stringify(projectList);
 
-fs.writeFile('../../public/projects/projects-index.json', things, err => {
+const dir = path.join(process.cwd(), 'public/projects'); 
+
+fs.writeFile(path.join(dir, 'projects-index.json'), things, err => {
     if (err) {
     console.error(err);
     } else {
@@ -47,7 +50,7 @@ for (const element of variable) {
 }
 
 variable.forEach(element => {
-    fs.writeFile(`../../public/projects/${element.name}.json`, JSON.stringify(element), err => {
+    fs.writeFile(path.join(dir,`${element.name}.json`), JSON.stringify(element), err => {
         if (err){
             console.log(err);
         } else{
