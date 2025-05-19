@@ -13,9 +13,7 @@ data.forEach(element => {
 
 const things = JSON.stringify(projectList);
 
-const dir = path.join(process.cwd(), 'public/projects'); 
-
-fs.writeFile(path.join(dir, 'projects-index.json'), things, err => {
+fs.writeFile('./public/projects/projects-index.json', things, err => {
     if (err) {
     console.error(err);
     } else {
@@ -50,7 +48,7 @@ for (const element of variable) {
 }
 
 variable.forEach(element => {
-    fs.writeFile(path.join(dir,`${element.name}.json`), JSON.stringify(element), err => {
+    fs.writeFile(`./public/projects/${element.name}.json`, JSON.stringify(element), err => {
         if (err){
             console.log(err);
         } else{

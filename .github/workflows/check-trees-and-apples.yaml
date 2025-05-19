@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: github action debug
-        run: ls -l
-
       - name: Run update script
         run: node src/scripts/update-projects.js
 

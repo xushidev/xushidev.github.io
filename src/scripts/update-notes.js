@@ -8,7 +8,9 @@ const data = await listRepos.json();
 let noteList = [];
 
 data.forEach(element => {
-    noteList.push(element.name);
+    if (!(element.name == "LICENSE" || element.name == "README.md")){
+        noteList.push(element.name);
+    }
 })
 
 const noteString = JSON.stringify(noteList);
@@ -26,13 +28,15 @@ let variable = [];
 
 // adding only the relevant informations to the list
 data.forEach(element => {
-    variable.push({
-        name: element.name,
-        description: "",
-        url: element.html_url,
-        readme: "",
-        _id: element.sha
-    });
+    if (!(element.name == "LICENSE" || element.name == "README.md")){
+        variable.push({
+            name: element.name,
+            description: "",
+            url: element.html_url,
+            readme: "",
+            _id: element.sha
+        });
+    }
 });
 
 // Fetch README.md content for each repo and set element.readme to the text

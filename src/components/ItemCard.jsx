@@ -55,7 +55,7 @@ const ItemCard = ({item}) => {
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay/>
                 <ModalContent>
-                    <ModalHeader>{item.name} README file</ModalHeader>
+                    <ModalHeader>{item.name} content</ModalHeader>
                     <ModalCloseButton/>
                     <ModalBody mb={4}>
                         <VStack spacing={4} alignItems={"flex-start"}>
