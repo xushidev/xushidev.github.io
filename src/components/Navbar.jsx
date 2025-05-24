@@ -27,7 +27,9 @@ const Navbar = () => {
                 bgGradient={"linear(to-r, #b4befe, #99d1db)"}
                 bgClip={"text"}
             >
+                <Tooltip label='home' hasArrow closeDelay={100}>
                 <Link to={"/"}>Xushi</Link>
+                </Tooltip>
             </Text>
             <HStack spacing={2} alignItems={"center"}>
                 <Link to={"/projects"}>
