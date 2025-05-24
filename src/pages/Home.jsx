@@ -15,17 +15,31 @@ const Home = () => {
     };
 
     return (
-        <Container maxW="container.md" mt={16} centerContent>
-            <VStack spacing={6}>
-                <HStack align="start" w="100%" ml={"10vh"} mr={4} mt={"20vh"}>
+        <Container maxW="container.md" mt={{ base: 4, md: 16 }} centerContent px={{ base: 0, sm: 4 }}>
+            <VStack spacing={{ base: 4, md: 6 }}>
+                <HStack
+                    align="start"
+                    w="100%"
+                    ml={{ base: 0, md: "10vh" }}
+                    mr={{ base: 0, md: 4 }}
+                    mt={{ base: 4, md: "20vh" }}
+                    flexDirection={{ base: "column", md: "row" }}
+                    spacing={{ base: 4, md: 0 }}
+                >
                     <Image
                         borderRadius="full"
                         boxSize={{ base: "80px", sm: "100px", md: "3xs" }}
                         src="/assets/circle-avatar.png"
                         alt="Xushi's avatar"
                         shadow="md"
+                        mx={{ base: "auto", md: 0 }}
                     />
-                    <VStack align="start" spacing={1} ml={2}>
+                    <VStack 
+                        align={{base: "center", md: "start", sm: "center"}} 
+                        spacing={1} ml={{ base: 0, md: 2 }} 
+                        mt={{ base: 2, md: 0 }} 
+                        w="100%"
+                    >
                         <Text
                             fontSize={{ base: "2xl", sm: "3xl", md: "5xl" }}
                             fontWeight="bold"
@@ -39,19 +53,19 @@ const Home = () => {
                             •
                             Creator
                         </Text>
-                        <HStack spacing={2} mt={1} color={"gray.600"}>
+                        <HStack spacing={2} mt={1} color={"gray.600"} flexWrap="wrap">
                             <ScrollLink to='about' smooth={true} duration={500} offset={-10}>
                                 <Text cursor="pointer" _hover={{ textDecoration: "underline"}}>
                                     About me
                                 </Text>
                             </ScrollLink>
-                            <Text>•</Text>
+                            <Text display={"inline"}>•</Text>
                             <ScrollLink to='skills' smooth={true} duration={500} offset={-10}>
                                 <Text cursor="pointer" _hover={{ textDecoration: "underline"}}>
                                     Skills
                                 </Text>
                             </ScrollLink>
-                            <Text>•</Text>
+                            <Text display={"inline"}>•</Text>
                             <ScrollLink to='resume' smooth={true} duration={500} offset={-100}>
                                 <Text cursor="pointer" _hover={{ textDecoration: "underline"}}>
                                     Resume
@@ -61,19 +75,17 @@ const Home = () => {
                     </VStack>
                 </HStack>
                 <Box
-                    mt={"50vh"}
                     id='about'
-                    w="100%"
                     px={{ base: 2, sm: 6, md: 12 }}
-                    py={{ base: 6, md: 10 }}
-                    rounded="50px"
+                    mt={{ base: 4, md: "70vh"}}
+                    rounded="2xl"
                     shadow="xl"
                     transition='all 0.3s'
                     _hover={{ transform: "translateY(-5px)", shadow: "xl" }}
                 >
                     <Text
                         fontWeight="bold"
-                        fontSize={{ base: "4xl", sm: "4xl", md: "4xl" }}
+                        fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                         mb={4}
                         bgGradient='linear(to-r, gray.300, yellow.400, pink.200)'
                         bgClip={"text"}
@@ -81,10 +93,15 @@ const Home = () => {
                     >
                         About me 
                     </Text>
-                    <VStack align="start" spacing={4}>
+                    <VStack 
+                        align="start" 
+                        spacing={4}
+                    >
                         <Text>
-                            Hi there! I am a solo developer and a highschool student passionate about various things,
-                            mainly computer science and programming, with an interest in writing, art, eastern culture and video games.
+                            Hi there! I am a solo developer and a highschool <br/>
+                            student passionate about various things,
+                            mainly computer science and programming, 
+                            with an interest in writing, art, eastern culture and video games.
                         </Text>
                         <Text>
                             I also have self taught myself many things about how to actually write code, 
@@ -114,19 +131,19 @@ const Home = () => {
                     </VStack>
                 </Box>
                 <Box
-                    mt={"15vh"}
+                    mt={{ base: 8, md: "15vh" }}
                     id='skills'
                     w="100%"
                     px={{ base: 2, sm: 6, md: 12 }}
-                    py={{ base: 6, md: 10 }}
-                    rounded="xl"
+                    py={{ base: 4, md: 10 }}
+                    rounded="2xl"
                     shadow="xl"
                     transition='all 0.3s'
                     _hover={{ transform: "translateY(-5px)", shadow: "xl" }}
                 >
                     <Text
                         fontWeight="bold"
-                        fontSize={{ base: "4xl", sm: "4xl", md: "4xl" }}
+                        fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                         mb={4}
                         bgGradient='linear(to-r, pink.100, yellow.300, gray.200)'
                         bgClip={"text"}
@@ -135,10 +152,7 @@ const Home = () => {
                         Skills
                     </Text>
                     <VStack align={"start"} spacing={4}>
-                        <Text
-                            fontWeight={"bold"}
-                            fontSize={"2xl"}
-                        >
+                        <Text fontWeight={"bold"} fontSize={{ base: "lg", md: "2xl" }}>
                             Tech stack:
                         </Text>
                         <Box pl={4}>
@@ -148,10 +162,7 @@ const Home = () => {
                             <Text><strong>Database:</strong> SQL (learning) </Text>
                             <Text><strong>Tools & Others:</strong> Git, GitHub, VS Code</Text>
                         </Box>
-                        <Text
-                            fontWeight={"bold"}
-                            fontSize={"2xl"}
-                        >
+                        <Text fontWeight={"bold"} fontSize={{ base: "lg", md: "2xl" }}>
                             Languages:
                         </Text>
                         <Box pl={4}>
@@ -161,7 +172,7 @@ const Home = () => {
                                 <ListItem>Chinese - Basic (spoken only)</ListItem>
                             </UnorderedList>
                         </Box>
-                        <Text fontWeight="bold" fontSize="2xl" mt={6}>Soft Skills:</Text>
+                        <Text fontWeight="bold" fontSize={{ base: "lg", md: "2xl" }} mt={6}>Soft Skills:</Text>
                         <Box pl={4}>
                             <UnorderedList spacing={3}>
                                 <ListItem>Problem Solving</ListItem>
@@ -169,7 +180,7 @@ const Home = () => {
                                 <ListItem>Creativity</ListItem>
                             </UnorderedList>
                         </Box>
-                        <Text fontWeight="bold" fontSize="2xl" mt={6}>Other Interests:</Text>
+                        <Text fontWeight="bold" fontSize={{ base: "lg", md: "2xl" }} mt={6}>Other Interests:</Text>
                         <Box pl={4}>
                             <UnorderedList spacing={3}>
                                 <ListItem>Drawing sketches</ListItem>
@@ -179,19 +190,18 @@ const Home = () => {
                     </VStack>
                 </Box>
                 <Box
-                    mt={"15vh"}
+                    mt={{ base: 8, md: "15vh" }}
                     id='resume'
-                    w="100%"
                     px={{ base: 2, sm: 6, md: 12 }}
-                    py={{ base: 6, md: 10 }}
-                    rounded="xl"
+                    py={{ base: 4, md: 10 }}
+                    rounded="2xl"
                     shadow="xl"
                     transition='all 0.3s'
                     _hover={{ transform: "translateY(-5px)", shadow: "xl" }}
                 >
                     <Text
                         fontWeight="bold"
-                        fontSize={{ base: "4xl", sm: "4xl", md: "4xl" }}
+                        fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                         mb={4}
                         bgGradient='linear(to-r, teal.200, blue.300, purple.200)'
                         bgClip={"text"}
@@ -200,10 +210,7 @@ const Home = () => {
                         Resume
                     </Text>
                     <VStack align={"start"} spacing={4}>
-                        <Text
-                            fontWeight={"bold"}
-                            fontSize={"2xl"}
-                        >
+                        <Text fontWeight={"bold"} fontSize={{ base: "lg", md: "2xl" }}>
                             Education
                         </Text>
                         <Box pl={4}>
@@ -211,10 +218,7 @@ const Home = () => {
                             <Text fontSize="sm" color="gray.500">Expected Graduation: [June, 2026]</Text>
                             <Text><strong>Relevant Courses</strong>: System administration, Computer science, Information Technology and Systems Design, Telecomunication</Text>
                         </Box>
-                        <Text
-                            fontWeight="bold"
-                            fontSize="2xl"
-                        >
+                        <Text fontWeight="bold" fontSize={{ base: "lg", md: "2xl" }}>
                             Certifications
                         </Text>
                         <Box pl={4}>
@@ -224,22 +228,27 @@ const Home = () => {
                                 <ListItem>Introduction to IoT - Cisco Network Academy</ListItem>
                             </UnorderedList>
                         </Box>
-                        <Button _hover={{ bg: "cyan.700" }}>
-                            Download my full resume (PDF) (NOT AVAILABLE YET)
+                        <Button 
+                            _hover={{ bg: "cyan.700" }}
+                            wordBreak="break-word"
+                            whiteSpace="normal"
+                            size={{base: "md", sm: "sm"}}
+                        >
+                            <Text whiteSpace="normal" wordBreak="break-word">
+                                Download my full resume (PDF) (NOT AVAILABLE YET)
+                            </Text>
                         </Button>
                     </VStack>
-                    
                 </Box>
             </VStack>
             <Box
                 roundedTop={50}
-                mt={"15vh"}
-                w={"100%"}
-                h={"10vh"}
+                mt={{ base: 8, md: "15vh" }}
+                h={{ base: "auto", md: "10vh" }}
                 bg={"blackAlpha.300"}
             >
-                <VStack py={8}>
-                    <HStack>
+                <VStack py={8} px={8}>
+                    <HStack flexWrap="wrap" justify="center">
                         <Text fontSize="sm" color={"gray.600"}>
                             © 2025 Xushi.
                         </Text>
