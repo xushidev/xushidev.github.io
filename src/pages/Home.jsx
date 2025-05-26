@@ -5,10 +5,10 @@ import { Link as ScrollLink } from 'react-scroll';
 const Home = () => {
 
     const handleDownload = () => {
-        const pdfUrl = '/assets/test-file.txt'; // Replace with the actual PDF URL
+        const pdfUrl = '/assets/Xushi_resume.pdf'; 
         const link = document.createElement('a');
         link.href = pdfUrl;
-        link.download = 'TEST-file.txt'; // Optional: Specify a custom file name
+        link.download = 'xushi-resume.pdf'; 
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -22,13 +22,13 @@ const Home = () => {
                     w="100%"
                     ml={{ base: 0, md: "10vh" }}
                     mr={{ base: 0, md: 4 }}
-                    mt={{ base: 4, md: "20vh" }}
+                    mt={{ base: 4, md: "20vh", sm: "20vh", xl: "20vh"}}
                     flexDirection={{ base: "column", md: "row" }}
                     spacing={{ base: 4, md: 0 }}
                 >
                     <Image
                         borderRadius="full"
-                        boxSize={{ base: "80px", sm: "100px", md: "3xs" }}
+                        boxSize={{ base: "120px", sm: "3xs", md: "3xs" }}
                         src="/assets/circle-avatar.png"
                         alt="Xushi's avatar"
                         shadow="md"
@@ -36,7 +36,8 @@ const Home = () => {
                     />
                     <VStack 
                         align={{base: "center", md: "start", sm: "center"}} 
-                        spacing={1} ml={{ base: 0, md: 2 }} 
+                        spacing={1} 
+                        ml={{base: 0, md: "5vh"}}
                         mt={{ base: 2, md: 0 }} 
                         w="100%"
                     >
@@ -54,7 +55,7 @@ const Home = () => {
                             Creator
                         </Text>
                         <HStack spacing={2} mt={1} color={"gray.600"} flexWrap="wrap">
-                            <ScrollLink to='about' smooth={true} duration={500} offset={-10}>
+                            <ScrollLink to='about' smooth={true} duration={500} offset={-150}>
                                 <Text cursor="pointer" _hover={{ textDecoration: "underline"}}>
                                     About me
                                 </Text>
@@ -77,7 +78,7 @@ const Home = () => {
                 <Box
                     id='about'
                     px={{ base: 2, sm: 6, md: 12 }}
-                    mt={{ base: 4, md: "70vh"}}
+                    mt={{ base: 4, md: "70vh", xl: "70vh", sm: "40vh"}}
                     rounded="2xl"
                     shadow="xl"
                     transition='all 0.3s'
@@ -98,7 +99,7 @@ const Home = () => {
                         spacing={4}
                     >
                         <Text>
-                            Hi there! I am a solo developer and a highschool <br/>
+                            Hi there! I am a solo developer and a highschool
                             student passionate about various things,
                             mainly computer science and programming, 
                             with an interest in writing, art, eastern culture and video games.
@@ -125,13 +126,14 @@ const Home = () => {
                             programming community.
                         </Text>
                         <Text>
-                            Thanks for reading until here, feel free to check out this website to find my posts, notes and projects, 
+                            Thanks for reading until here, feel free to check out this website 
+                            to find my posts, notes and projects, 
                             also feel free to contact me at any time!
                         </Text>
                     </VStack>
                 </Box>
                 <Box
-                    mt={{ base: 8, md: "15vh" }}
+                    mt={{ base: 8, md: "15vh", xl: "70vh", sm: "10vh"}}
                     id='skills'
                     w="100%"
                     px={{ base: 2, sm: 6, md: 12 }}
@@ -233,9 +235,10 @@ const Home = () => {
                             wordBreak="break-word"
                             whiteSpace="normal"
                             size={{base: "md", sm: "sm"}}
+                            onClick={handleDownload}
                         >
                             <Text whiteSpace="normal" wordBreak="break-word">
-                                Download my full resume (PDF) (NOT AVAILABLE YET)
+                                Download my full resume (PDF)
                             </Text>
                         </Button>
                     </VStack>
@@ -246,6 +249,7 @@ const Home = () => {
                 mt={{ base: 8, md: "15vh" }}
                 h={{ base: "auto", md: "10vh" }}
                 bg={"blackAlpha.300"}
+                w={{base: "30vh", sm: "40vh", xl: "70vh", md: "50vh"}}
             >
                 <VStack py={8} px={8}>
                     <HStack flexWrap="wrap" justify="center">
