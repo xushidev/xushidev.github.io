@@ -1,9 +1,12 @@
 import { Button, Container, Flex, HStack, Text, Tooltip, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
-import { FaRss } from 'react-icons/fa';
-import { GrProjects } from 'react-icons/gr';
+import { FaUser } from 'react-icons/fa';
+import { GrProjects} from 'react-icons/gr';
+import { HiOutlineNewspaper } from 'react-icons/hi';
 import { IoMoon } from 'react-icons/io5';
-import { LuScrollText, LuSun } from 'react-icons/lu';
+import { LuSun } from 'react-icons/lu';
+import { MdOutlineContactPage } from 'react-icons/md';
+import { SiAboutdotme } from 'react-icons/si';
 import { Link } from 'react-router';
 
 const Navbar = () => {
@@ -28,7 +31,7 @@ const Navbar = () => {
                 bgClip={"text"}
             >
                 <Tooltip label='home' hasArrow closeDelay={100}>
-                <Link to={"/"}>Xushi</Link>
+                <Link to={"/"}>Home</Link>
                 </Tooltip>
             </Text>
             <HStack spacing={2} alignItems={"center"}>
@@ -39,17 +42,17 @@ const Navbar = () => {
                     </Button>
                     </Tooltip>
                 </Link>
-                <Link to={"/blog"}>
-                    <Tooltip label='blogs' hasArrow closeDelay={100}>
+                <Link to={"/about-me"}>
+                    <Tooltip label='about me' hasArrow closeDelay={100}>
                     <Button>
-                        <FaRss fontSize={20}/>
+                        <FaUser fontSize={20}/>
                     </Button>
                     </Tooltip>
                 </Link>
-                <Link to={"/notes"}>
-                    <Tooltip label='notes' hasArrow closeDelay={100}>
+                <Link to={"/resume"}>
+                    <Tooltip label='resume' hasArrow closeDelay={100}>
                     <Button>
-                        <LuScrollText fontSize={20}/>
+                        <HiOutlineNewspaper fontSize={20}/>
                     </Button>
                     </Tooltip>
                 </Link>

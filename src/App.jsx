@@ -2,9 +2,10 @@ import { Box, useColorModeValue } from "@chakra-ui/react"
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Projects from "./pages/Projects"
-import Blog from "./pages/Blog"
 import Navbar from "./components/Navbar"
-import Notes from "./pages/Notes"
+import Resume from "./pages/Resume"
+import Aboutme from './pages/About-me'
+
 
 function App() {
 
@@ -14,13 +15,13 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/projects" element={ <Projects/> }/>
-        <Route path="/blog" element={ <Blog/> } />
-        <Route path="/notes" element={ <Notes/> }/>
+        <Route path="/about-me" element={ <Aboutme/> }/>
+        <Route path="/resume" element={ <Resume/> }/>
         {/*
           Home -> Skills, descriptions (about me) and contacts
-          Projects -> Live projects and archived projects
-          Blog -> Bloggings (Github repository)
-          Notes -> School notes and my own notes (Github Repository)
+          Projects -> all projects
+          About Me -> General about me page
+          Resume -> Resume
         */} 
       </Routes>
     </Box>

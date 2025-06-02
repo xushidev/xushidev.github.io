@@ -1,8 +1,8 @@
-name: Water the garden
+name: Check for projects
 
 on:
   schedule:
-    - cron: '0 * * * *' # run every hour
+    - cron: '0 0 * * *' # run every day
   workflow_dispatch:    # manual trigger
 
 jobs:
@@ -20,12 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Run update script (blog)
-        run: node src/scripts/update-blog.js 
-
-      - name: Run update script (notes)
-        run: node src/scripts/update-notes.js
+      
+      - name: Run update script
+        run: node src/scripts/update-projects.js
 
       - name: Commit changes
         run: |
@@ -36,10 +33,11 @@ jobs:
 
       - name: Push changes
         run: git push
-        
+      
       - name: Configure Git Remote with GITHUB_TOKEN
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
 
       - name: Deploy site
         run: npm run deploy
