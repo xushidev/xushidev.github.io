@@ -13,7 +13,10 @@ const Resume = () => {
     };
 
     return (
-        <Container maxW="container.md" mt={{ base: 4, md: 16 }} centerContent px={{ base: 0, sm: 4 }}>
+        <Container 
+            maxW="container.md" mt={{ base: 4, md: 16 }} centerContent px={{ base: 0, sm: 4 }}
+            maxH="100vh"
+        >
             <VStack spacing={{ base: 4, md: 6 }}>
                 <Box
                     id='resume'
@@ -68,11 +71,10 @@ const Resume = () => {
                 </Box>
             </VStack>
             <Box
-                roundedTop={50}
-                mt={{ base: 6, md: "15vh" }}
-                h={{ base: "auto", md: "10vh" }}
+                mt="20vh"
+                pb="5"
                 bg={"blackAlpha.300"}
-                w={{base: "30vh", sm: "40vh", xl: "70vh", md: "50vh"}}
+                w={"100vw"}
             >
                 <VStack py={8} px={8}>
                     <HStack flexWrap="wrap" justify="center">

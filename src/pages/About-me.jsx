@@ -12,6 +12,7 @@ const Aboutme = () => {
                     shadow="xl"
                     transition='all 0.3s'
                     _hover={{ transform: "translateY(-5px)", shadow: "xl" }}
+                    py="5vh"
                 >
                     <Text
                         fontWeight="bold"
@@ -62,7 +63,7 @@ const Aboutme = () => {
                     </VStack>
                 </Box>
                 <Box
-                    mt={8}
+                    mt={"10vh"}
                     id='skills'
                     w="100%"
                     px={{ base: 2, sm: 6, md: 12 }}
@@ -122,11 +123,10 @@ const Aboutme = () => {
                 </Box>
             </VStack>
             <Box
-                roundedTop={50}
                 mt={{ base: 8, md: "15vh" }}
                 h={{ base: "auto", md: "10vh" }}
                 bg={"blackAlpha.300"}
-                w={{base: "30vh", sm: "40vh", xl: "70vh", md: "50vh"}}
+                w="100vw"
             >
                 <VStack py={8} px={8}>
                     <HStack flexWrap="wrap" justify="center">

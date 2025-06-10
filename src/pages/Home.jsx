@@ -3,8 +3,10 @@ import React from 'react'
 
 const Home = () => {
     return (
-        <Container maxW="container.md" mt={{ base: 4, md: 16 }} centerContent px={{ base: 0, sm: 4 }}>
-            <VStack spacing={{ base: 4, md: 6 }}>
+        <Container maxW="container.md" centerContent px={{ base: 0, sm: 4 }}>
+            <VStack spacing={{ base: 4, md: 6 }}
+                mt="5vh"
+            >
                 <HStack
                     align="start"
                     w="100%"
